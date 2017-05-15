@@ -6,6 +6,7 @@ import {
 import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
+import Books from './components/Books';
 
 const Routes = () => (
   <Router>
@@ -13,6 +14,7 @@ const Routes = () => (
       <Header />
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
+      <Route path="/books" component={Books} />
     </div>
   </Router>
 );
