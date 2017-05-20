@@ -1,4 +1,4 @@
-export function addBook(book) {
+export default function addBook(book) {
   return {
     type: 'ADD_BOOK',
     book
