@@ -1,11 +1,12 @@
 import React from 'react';
 import AddBookForm from '../../containers/AddBookForm';
-import BooksList from './BooksList';
+import VisibleBooksList from '../../containers/VisibleBooksList';
 
 const Books = () => (
   <div>
     <h1>Books</h1>
-    <BooksList books={['Lord of the rings', 'Harry Potter', 'Artemis Fowl']} />
+    <AddBookForm />
+    <VisibleBooksList />
   </div>
 );
 
