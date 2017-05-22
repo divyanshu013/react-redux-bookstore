@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const renderBooks = books => (
   <ul>
     {
-      books.map(book => (
-        <li>{book}</li>
+      books.map((book, index) => (
+        <li key={index}>{book}</li>
       ))
     }
   </ul>
@@ -17,5 +18,9 @@ const BooksList = ({ books }) => (
     {renderBooks(books)}
   </div>
 );
+
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default BooksList;
