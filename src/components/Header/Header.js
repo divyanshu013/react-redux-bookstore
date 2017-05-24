@@ -8,12 +8,12 @@ const styles = {
 };
 
 const activeStyles = {
-  border: '1px solid black',
+  border: '1px solid skyblue',
   borderRadius: 5
 };
 
 const Header = () => (
-  <div className="header">
+  <div className="app-header">
     <Menu secondary>
       <h2>React-Redux Bookstore</h2>
       <Menu.Menu position="right">

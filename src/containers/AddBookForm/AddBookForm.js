@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import addBook from '../../actions';
+import PropTypes from 'prop-types';
+import { addBook } from '../../actions';
 
 const AddBookForm = ({ dispatch }) => {
   let input;
@@ -30,6 +31,10 @@ const AddBookForm = ({ dispatch }) => {
       </form>
     </div>
   );
+};
+
+AddBookForm.propTypes = {
+  dispatch: PropTypes.func.isRequired
 };
 
 export default connect()(AddBookForm);

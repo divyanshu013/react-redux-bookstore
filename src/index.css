@@ -1,4 +1,4 @@
-.header {
+.app-header {
   padding: 20px;
   background-color: #f0f0f0;
 }
@@ -6,4 +6,18 @@
 .content {
   margin: 20px;
   padding: 20px;
+}
+
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  padding: 5px;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.book-item {
+  margin: 5px;
+  padding: 5px;
 }
