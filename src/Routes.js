@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
 import Books from './components/Books';
+import SingleBookView from './components/Books/SingleBookView';
 
 const Routes = () => (
   <Provider store={store}>
@@ -18,7 +19,8 @@ const Routes = () => (
         <div className="content">
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/books" component={Books} />
+          <Route exact path="/books" component={Books} />
+          <Route path="/books/:id" component={SingleBookView} />
         </div>
       </div>
     </Router>

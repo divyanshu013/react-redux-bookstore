@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const renderBooks = books => (
   books.map((book, index) => (
@@ -19,7 +20,10 @@ const renderBooks = books => (
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <strong>Category:</strong> {book.category}
+          <strong>Category:</strong> {book.category}<br />
+          <Link to={`/books/${book.id}`}>
+            <strong>Edit book</strong>
+          </Link>
         </Card.Content>
       </Card>
     </div>

@@ -71,9 +71,9 @@ function replaceAll(str, find, replace) {
   return str.replace(new RegExp(find, 'g'), replace);
 }
 
-const generateId = (book) => {
-  return replaceAll(book.title, ' ', '-');
-};
+const generateId = book => (
+  replaceAll(book.title, ' ', '-')
+);
 
 class BookApi {
   static getAllBooks() {
@@ -109,9 +109,9 @@ class BookApi {
   static deleteBook(bookId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const indexOfBookToDelete = books.findIndex(book => {
-          book.id === bookId;
-        });
+        const indexOfBookToDelete = books.findIndex(book => (
+          book.id === bookId
+        ));
         books.splice(indexOfBookToDelete, 1);
         resolve();
       }, delay);
