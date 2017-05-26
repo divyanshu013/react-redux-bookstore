@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Rating } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const renderBooks = books => (
@@ -16,7 +16,8 @@ const renderBooks = books => (
             {book.authorId}
           </Card.Meta>
           <Card.Description>
-            Rated <strong>{book.rating} stars!</strong>
+            <strong>Rated</strong>&nbsp;
+            <Rating icon="star" defaultRating={book.rating} maxRating={5} disabled />
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
@@ -32,8 +33,6 @@ const renderBooks = books => (
 
 const BooksList = ({ books }) => (
   <div>
-    <hr />
-    <h2>BooksList</h2>
     <div className="books-list">
       {renderBooks(books)}
     </div>

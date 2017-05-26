@@ -1,11 +1,10 @@
 import React from 'react';
-import AddBookForm from '../../containers/AddBookForm';
+import BookForm from './BookForm';
 import VisibleBooksList from '../../containers/VisibleBooksList';
 
 const Books = () => (
   <div>
-    <h1>Books</h1>
-    <AddBookForm />
+    <BookForm />
     <VisibleBooksList />
   </div>
 );
