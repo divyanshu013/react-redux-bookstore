@@ -7,7 +7,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1372847500l/5907.jpg",
     authorId: "jrr-tolkein",
     rating: 5,
-    category: "adventure"
+    category: "Adventure"
   },
   {
     id: "the-lord-of-the-rings",
@@ -15,7 +15,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1411114164l/33.jpg",
     authorId: "jrr-tolkein",
     rating: 5,
-    category: "adventure"
+    category: "Adventure"
   },
   {
     id: "inferno",
@@ -23,7 +23,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1397093185l/17212231.jpg",
     authorId: "dan-brown",
     rating: 4,
-    category: "mystery"
+    category: "Mystery"
   },
   {
     id: "the-lost-symbol",
@@ -31,7 +31,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1358274396l/6411961.jpg",
     authorId: "dan-brown",
     rating: 4,
-    category: "mystery"
+    category: "Mystery"
   },
   {
     id: "harry-potter-and-the-deathly-hallows",
@@ -39,7 +39,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1474171184l/136251.jpg",
     authorId: "jk-rowling",
     rating: 5,
-    category: "fantasy"
+    category: "Fantasy"
   },
   {
     id: "the-secret",
@@ -47,7 +47,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1482865039l/52529.jpg",
     authorId: "rhonda-byrne",
     rating: 4,
-    category: "motivational"
+    category: "Motivational"
   },
   {
     id: "artemis-fowl",
@@ -55,7 +55,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1327945104l/249747.jpg",
     authorId: "eoin-colfer",
     rating: 4,
-    category: "fantasy"
+    category: "Fantasy"
   },
   {
     id: "the-alchemist",
@@ -63,7 +63,7 @@ const books = [
     image: "https://images.gr-assets.com/books/1483412266l/865.jpg",
     authorId: "paulo-coelho",
     rating: 4,
-    category: "classics"
+    category: "Classics"
   }
 ];
 
