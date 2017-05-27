@@ -1,7 +1,8 @@
 import React from 'react';
+import UpdateBookForm from '../../containers/BookFormContainers/UpdateBookForm';
 
 const SingleBookView = () => (
-  <h1>Single Book View</h1>
+  <UpdateBookForm />
 );
 
 export default SingleBookView;

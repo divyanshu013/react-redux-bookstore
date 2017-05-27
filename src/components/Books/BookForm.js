@@ -10,7 +10,15 @@ const BookForm = ({ book, authors, onSave, onChange, loading, errors }) => (
     <Form className="attached fluid segment">
       <Form.Group widths="equal">
         <Form.Input label="Title" placeholder="Title" type="text" />
-        <Form.Input label="Author" placeholder="Author" type="text" />
+        <Form.Select
+          label="Author" placeholder="Author" options={
+            authors.map(author => ({
+              text: `${author.firstName} ${author.lastName}`,
+              key: author.id,
+              value: author.id
+            }))
+          }
+        />
         <Form.Input label="Category" placeholder="Category" type="text" />
       </Form.Group>
       <Form.Input label="Image URL" placeholder="Image URL" type="text" />
@@ -24,5 +32,13 @@ const BookForm = ({ book, authors, onSave, onChange, loading, errors }) => (
     </Form>
   </div>
 );
+
+BookForm.propTypes = {
+  authors: PropTypes.arrayOf(PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    id: PropTypes.string
+  })).isRequired
+};
 
 export default BookForm;

@@ -4,8 +4,8 @@ export default function books(state = [], action) {
   switch (action.type) {
     case ADD_BOOK:
       return [
-        ...state,
-        action.book
+        action.book,
+        ...state
       ];
     case FETCH_BOOKS_SUCCESS:
       return action.books;
