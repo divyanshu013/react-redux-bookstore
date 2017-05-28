@@ -1,17 +1,11 @@
 import BookApi from '../apis/mockBookApi';
 import AuthorApi from '../apis/mockAuthorApi';
 
-export const ADD_BOOK = 'ADD_BOOK';
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
 export const FETCH_AUTHORS_SUCCESS = 'FETCH_AUTHORS_SUCCESS';
-
-export function addBook(book) {
-  return {
-    type: ADD_BOOK,
-    book
-  };
-}
+export const ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS';
+export const UPDATE_BOOK_SUCCESS = 'UPDATE_BOOK_SUCCESS';
 
 export function fetchBooksSuccess(books) {
   return {
@@ -48,5 +42,30 @@ export function fetchAuthors() {
       .catch((error) => {
         throw (error);
       })
+  );
+}
+
+export function addBookSuccess(book) {
+  return {
+    type: ADD_BOOK_SUCCESS,
+    book
+  };
+}
+
+export function updateBookSuccess(book) {
+  return {
+    type: UPDATE_BOOK_SUCCESS,
+    book
+  };
+}
+
+export function saveBook(book) {
+  return dispatch => (
+    BookApi.saveBook(book).then(savedBook => (
+      book.id ? dispatch(updateBookSuccess(savedBook)) : dispatch(addBookSuccess(saveBook))
+    ))
+    .catch((error) => {
+      throw (error);
+    })
   );
 }
