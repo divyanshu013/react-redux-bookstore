@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Header, Form, Button, Rating, Label } from 'semantic-ui-react';
 
-const BookForm = ({ book, authors, onSave, onChange, loading, errors }) => (
+const BookForm = ({ book, authors, handleSubmit, handleChange, loading, errors }) => (
   <div>
     <Header as="h2" attached="top">
       Add new book
     </Header>
     <Form className="attached fluid segment">
       <Form.Group widths="equal">
-        <Form.Input label="Title" placeholder="Title" type="text" />
+        <Form.Input
+          label="Title" placeholder="Title" type="text" value={book.title}
+          onChange={handleChange}
+        />
         <Form.Select
-          label="Author" placeholder="Author" options={
+          label="Author" value={book.authorId} onChange={handleChange} placeholder="Author"
+          options={
             authors.map(author => ({
               text: `${author.firstName} ${author.lastName}`,
               key: author.id,
@@ -19,26 +23,25 @@ const BookForm = ({ book, authors, onSave, onChange, loading, errors }) => (
             }))
           }
         />
-        <Form.Input label="Category" placeholder="Category" type="text" />
+        <Form.Input
+          label="Category" placeholder="Category" type="text" value={book.category}
+          onChange={handleChange}
+        />
       </Form.Group>
-      <Form.Input label="Image URL" placeholder="Image URL" type="text" />
+      <Form.Input
+        label="Image URL" placeholder="Image URL" type="text" value={book.image}
+        onChange={handleChange}
+      />
       <Label basic size="large">
         Rating
         <Label.Detail>
-          <Rating icon="star" maxRating={5} />
+          <Rating icon="star" maxRating={5} defaultRating={book.rating} onRate={handleChange} />
         </Label.Detail>
       </Label>
-      <Button color="blue" floated="right">Add Book</Button>
+      <Button color="blue" floated="right" onClick={handleSubmit}>Add Book</Button>
     </Form>
   </div>
 );
 
-BookForm.propTypes = {
-  authors: PropTypes.arrayOf(PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    id: PropTypes.string
-  })).isRequired
-};
 
 export default BookForm;
