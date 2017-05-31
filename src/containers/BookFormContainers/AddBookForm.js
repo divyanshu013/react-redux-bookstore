@@ -25,14 +25,12 @@ class AddBookFormComponent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  handleChange(event, data) {
+    const value = data.value || data.rating;
+    const name = data.name;
 
     const book = { ...this.state.book };
     book[name] = value;
-    console.log(book);
 
     this.setState({
       book
@@ -41,6 +39,7 @@ class AddBookFormComponent extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log(this.state.book);
   }
 
   render() {
