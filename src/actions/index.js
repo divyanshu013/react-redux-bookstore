@@ -62,7 +62,7 @@ export function updateBookSuccess(book) {
 export function saveBook(book) {
   return dispatch => (
     BookApi.saveBook(book).then(savedBook => (
-      book.id ? dispatch(updateBookSuccess(savedBook)) : dispatch(addBookSuccess(saveBook))
+      book.id ? dispatch(updateBookSuccess(savedBook)) : dispatch(addBookSuccess(savedBook))
     ))
     .catch((error) => {
       throw (error);

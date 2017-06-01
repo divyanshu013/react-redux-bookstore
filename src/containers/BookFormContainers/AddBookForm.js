@@ -2,9 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import BookForm from '../../components/Books/BookForm';
+import { saveBook } from '../../actions';
 
 const mapStateToProps = state => ({
   authors: state.authors
+});
+
+const mapDispatchToProps = dispatch => ({
+  saveBook: book => dispatch(saveBook(book))
 });
 
 class AddBookFormComponent extends React.Component {
@@ -39,7 +44,7 @@ class AddBookFormComponent extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.book);
+    this.props.saveBook(this.state.book);
   }
 
   render() {
@@ -52,6 +57,6 @@ class AddBookFormComponent extends React.Component {
   }
 }
 
-const AddBookForm = connect(mapStateToProps)(AddBookFormComponent);
+const AddBookForm = connect(mapStateToProps, mapDispatchToProps)(AddBookFormComponent);
 
 export default AddBookForm;

@@ -36,7 +36,10 @@ const BookForm = ({ book, authors, handleSubmit, handleChange, loading, errors }
       <Label basic size="large">
         Rating
         <Label.Detail>
-          <Rating icon="star" maxRating={5} defaultRating={book.rating} onRate={handleChange} name="rating" />
+          <Rating
+            icon="star" maxRating={5} defaultRating={book.rating} onRate={handleChange}
+            name="rating"
+          />
         </Label.Detail>
       </Label>
       <Button color="blue" floated="right" onClick={handleSubmit}>Add Book</Button>
