@@ -51,7 +51,7 @@ class AddBookFormComponent extends React.Component {
     return (
       <BookForm
         book={this.state.book} handleChange={this.handleChange} handleSubmit={this.handleSubmit}
-        authors={this.props.authors}
+        authors={this.props.authors} header="Add new book"
       />
     );
   }

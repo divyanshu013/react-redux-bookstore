@@ -1,12 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Segment, Image } from 'semantic-ui-react';
 
 import BookForm from '../../components/Books/BookForm';
 import { saveBook } from '../../actions';
 
-const mapStateToProps = state => ({
-  authors: state.authors
-});
+const getBookById = (books, bookId) => (
+  books.find(book => book.id === bookId)
+);
+
+const mapStateToProps = (state, ownProps) => {
+  const bookId = ownProps.id;
+  let book = {};
+  if (state.books.length > 0) {
+    book = getBookById(state.books, bookId);
+  }
+  return {
+    authors: state.authors,
+    book
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   saveBook: book => dispatch(saveBook(book))
@@ -15,20 +29,20 @@ const mapDispatchToProps = dispatch => ({
 class UpdateBookFormComponent extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
-      book: {
-        title: '',
-        id: '',
-        authorId: '',
-        image: '',
-        rating: 0,
-        category: ''
-      }
+      book: this.props.book
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.book.id !== nextProps.book.id) {
+      this.setState({
+        book: { ...nextProps.book }
+      });
+    }
   }
 
   handleChange(event, data) {
@@ -46,17 +60,34 @@ class UpdateBookFormComponent extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.saveBook(this.state.book);
+    this.context.router.history.push('/books');
   }
 
   render() {
     return (
-      <BookForm
-        book={this.state.book} handleChange={this.handleChange} handleSubmit={this.handleSubmit}
-        authors={this.props.authors}
-      />
+      <Segment.Group horizontal>
+        <Segment>
+          <Image src={this.state.book.image} shape="rounded" />
+        </Segment>
+        <Segment>
+          <BookForm
+            book={this.state.book} handleChange={this.handleChange} handleSubmit={this.handleSubmit}
+            authors={this.props.authors} header={`Update ${this.state.book.title}`}
+          />
+        </Segment>
+      </Segment.Group>
     );
   }
 }
+
+UpdateBookFormComponent.propTypes = {
+  saveBook: PropTypes.func.isRequired,
+  authors: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+UpdateBookFormComponent.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 const UpdateBookForm = connect(mapStateToProps, mapDispatchToProps)(UpdateBookFormComponent);
 

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Header, Form, Button, Rating, Label } from 'semantic-ui-react';
 
-const BookForm = ({ book, authors, handleSubmit, handleChange, loading, errors }) => (
+const BookForm = ({ header, book, authors, handleSubmit, handleChange, loading, errors }) => (
   <div>
     <Header as="h2" attached="top">
-      Add new book
+      {header}
     </Header>
     <Form className="attached fluid segment">
       <Form.Group widths="equal">
@@ -42,7 +42,7 @@ const BookForm = ({ book, authors, handleSubmit, handleChange, loading, errors }
           />
         </Label.Detail>
       </Label>
-      <Button color="blue" floated="right" onClick={handleSubmit}>Add Book</Button>
+      <Button color="blue" floated="right" onClick={handleSubmit}>{header}</Button>
     </Form>
   </div>
 );
